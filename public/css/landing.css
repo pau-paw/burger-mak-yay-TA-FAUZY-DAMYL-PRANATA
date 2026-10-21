@@ -1,0 +1,220 @@
+/* MAINPAGE — edit palette / content width here. Assets and fonts are local. */
+@font-face{font-family:'Lilita One';src:url('../fonts/LilitaOne-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+:root{--cream:#fff1dc;--brown:#792006;--yellow:#ffbf00;--ink:#341608;--page-width:1120px;--radius:22px;--display:'Lilita One','Arial Black',Impact,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--brown);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,summary{font:inherit;color:inherit}
+button,a,summary{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer}
+[hidden]{display:none!important}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--brown);outline-offset:5px}
+.visually-hidden,.skip-link:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.skip-link:focus{position:fixed;top:8px;left:8px;z-index:100;background:var(--brown);color:var(--cream);padding:16px}
+.display{font-family:var(--display);font-weight:400;letter-spacing:-.02em;margin:0}
+.landing-shell{width:86%;max-width:var(--page-width);margin-inline:auto;container-type:inline-size}
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:20px;position:relative;z-index:10}
+.brand-pill,.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #79200688;border-radius:999px;min-height:44px;padding:8px 17px;font-size:13px;font-weight:700;line-height:1.1;white-space:nowrap;transition:background .18s,color .18s}
+.brand-pill{font-family:var(--display);font-weight:400;font-size:21px;gap:7px}
+.pill:hover{background:var(--yellow)}
+.header-actions{display:flex;gap:10px;align-items:center}
+.bag-icon{position:relative;display:inline-block;width:12px;height:13px;border:1.3px solid currentColor;border-radius:2px;margin-top:2px}
+.bag-icon:before{content:'';position:absolute;width:5px;height:4px;left:2px;top:-4px;border:1.3px solid currentColor;border-bottom:0;border-radius:4px 4px 0 0}
+.user-icon{position:relative;display:inline-block;width:12px;height:13px;margin-top:1px}
+.user-icon:before{content:'';position:absolute;width:6px;height:6px;left:2.5px;top:0;border:1.3px solid currentColor;border-radius:50%}
+.user-icon:after{content:'';position:absolute;width:12px;height:5px;left:0;bottom:0;border:1.3px solid currentColor;border-bottom:0;border-radius:6px 6px 0 0}
+.menu-icon{font-size:12px}
+.nav-menu{position:relative}
+.nav-menu summary{list-style:none;cursor:pointer;user-select:none}
+.nav-menu summary::-webkit-details-marker{display:none}
+.nav-menu[open] summary{background:var(--yellow)}
+.nav-panel{position:absolute;right:0;top:calc(100% + 10px);width:240px;background:var(--cream);border:1px solid var(--brown);padding:10px;border-radius:16px;box-shadow:0 10px 30px #79200620}
+.nav-panel a,.nav-panel button{display:flex;width:100%;justify-content:space-between;align-items:center;text-align:left;padding:13px 12px;border:0;background:none;border-radius:8px;font-size:14px;min-height:44px}
+.nav-panel a:hover,.nav-panel button:hover{background:var(--yellow)}
+.nav-panel form{margin:0}
+.landing-notice{border:1px solid var(--brown);border-radius:10px;padding:14px}
+
+/* 1. Hero. Font and burger scale with the content width, not the viewport. */
+.hero{position:relative;isolation:isolate;aspect-ratio:1.35;margin:24px 0 12px}
+.hero-title{font-size:24.3cqw;line-height:.84;text-align:center;letter-spacing:-.035em;padding-top:2cqw}
+.hero-title span{display:block;width:max-content;margin-inline:auto;transform:scaleX(1.18)}
+.hero-burger{position:absolute;z-index:1;top:5cqw;left:17%;width:66%;filter:drop-shadow(0 16px 12px #54200c15);pointer-events:none}
+.flavor-stamp{position:absolute;z-index:2;right:21%;top:13%;width:16.5cqw;height:16.5cqw;border:3px solid var(--yellow);border-radius:50%;color:var(--yellow);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.6cqw;transform:rotate(-15deg);box-shadow:inset 0 0 0 3px #79200635,inset 0 0 0 5px var(--yellow);text-align:center;text-shadow:0 1px 2px #79200680}
+.flavor-stamp span{font-size:1.55cqw;letter-spacing:.13em}
+.flavor-stamp strong{font-family:var(--display);font-weight:400;font-size:3.1cqw;border-block:1px solid var(--yellow);line-height:1.1;padding-block:.5cqw}
+
+/* 2. Three promotion cards. Mobile follows the supplied 1 + 2 composition. */
+.promo-grid{display:grid;grid-template-columns:1fr 2fr;gap:10px}
+.promo-card{position:relative;isolation:isolate;overflow:hidden;border-radius:var(--radius);transition:box-shadow .2s}
+.promo-card:hover{box-shadow:0 5px 0 #79200622}
+.flavor-card{grid-column:1/-1;background:var(--yellow);min-height:42cqw;display:flex;align-items:center}
+.flavor-burger{position:absolute;width:56%;max-width:none;left:-9%;top:6%;transform:rotate(-8deg);pointer-events:none}
+.flavor-copy{margin:5% 5% 5% 51%;position:relative}
+.flavor-copy h2{font-size:7.1cqw;line-height:.92}
+.flavor-copy p{font-size:2.9cqw;line-height:1.25;margin:14px 0 0;color:var(--ink);font-weight:600}
+.fries-card,.discover-card{background:var(--brown);color:var(--yellow);height:42cqw}
+.fries-card h2{font-size:6.4cqw;line-height:.91;position:relative;z-index:2;width:80%;padding:8% 7%}
+.fries-card img{position:absolute;width:66%;right:-2%;bottom:-9%;transform:rotate(8deg);pointer-events:none}
+.crown-badge{position:absolute;right:5%;top:4%;color:var(--brown);background:var(--yellow);font-size:5.5cqw;line-height:1.4;width:7.5cqw;text-align:center;clip-path:polygon(50% 0%,61% 8%,75% 6%,81% 19%,94% 25%,92% 39%,100% 50%,92% 61%,94% 75%,81% 81%,75% 94%,61% 92%,50% 100%,39% 92%,25% 94%,19% 81%,6% 75%,8% 61%,0% 50%,8% 39%,6% 25%,19% 19%,25% 6%,39% 8%);transform:rotate(-12deg)}
+.promo-note{position:absolute;left:6%;bottom:4%;z-index:3;max-width:88%;padding:4px 5px;border-radius:4px;background:var(--brown);color:var(--cream);font-size:10px;line-height:1.15}
+.discover-card h2{position:relative;z-index:2;width:57%;font-size:6.6cqw;line-height:.91;padding:12% 0 0 7%}
+.discover-card img{position:absolute;max-width:none;width:81%;right:-30%;bottom:-19%;transform:rotate(4deg);pointer-events:none}
+
+/* 3. Exploded burger. Text is selectable HTML; image has a transparent canvas. */
+.ingredients{position:relative;isolation:isolate;margin-block:8cqw 3cqw;min-height:191cqw}
+.ingredient-type{text-align:center;font-size:11.8cqw;line-height:1.01;letter-spacing:-.025em;padding-top:1cqw}
+.ingredient-type span{display:block;width:max-content;margin-inline:auto;transform:scaleX(1.12)}
+.ingredient-burger{position:absolute;width:62%;left:19%;top:1%;height:98%;object-fit:contain;max-width:none;pointer-events:none}
+
+/* 4. Reviews. Hidden slides reserve no extra height; controls stay reachable. */
+.review-card{background:var(--yellow);border-radius:var(--radius);padding:3%;display:grid;grid-template-columns:33% 1fr;gap:5%;align-items:stretch}
+.review-photo{width:100%;height:100%;max-height:480px;min-height:100%;object-fit:cover;object-position:center;border-radius:6px}
+.review-content{display:flex;flex-direction:column;justify-content:center;padding:3% 1%;min-width:0}
+.example-label{font-size:11px;line-height:1.3;margin-bottom:12px;color:var(--brown)}
+.review-slide{margin:0}
+.review-slide blockquote{font-size:5.2cqw;line-height:.97;margin:0}
+.review-slide figcaption{font-size:2.6cqw;margin-top:5%;color:var(--ink)}
+.review-controls{display:flex;align-items:center;justify-content:flex-end;gap:6px;margin-top:8px}
+.review-counter{font-family:var(--display);font-size:28px;white-space:nowrap;min-width:45px;text-align:center}
+.review-counter strong{font-weight:400}
+.review-counter>span{opacity:.55}
+.arrow-button{border:1px solid #79200655;border-radius:50%;width:44px;height:44px;padding:0;background:none;font-size:20px}
+.arrow-button:hover{background:var(--cream)}
+
+/* 5. Footer. Clip only decorative images, never navigation or keyboard focus. */
+.landing-footer{position:relative;margin-top:5cqw}
+.footer-teaser{position:relative;min-height:41cqw;isolation:isolate;overflow:hidden}
+.footer-copy{position:relative;z-index:3;width:45%;padding-top:9cqw;padding-bottom:4cqw}
+.footer-copy h2{font-size:5.8cqw;line-height:.95;max-width:90%}
+.footer-copy p{font-size:15px;line-height:1.45;max-width:85%;margin:16px 0 0;color:var(--ink)}
+.footer-burger{position:absolute;z-index:2;max-width:none;width:67%;right:-17%;top:5%;transform:rotate(-12deg);pointer-events:none}
+.footer-fries{position:absolute;z-index:1;max-width:none;width:44%;right:12%;top:-2%;transform:rotate(-25deg);pointer-events:none}
+.footer-panel{position:relative;background:var(--yellow);border-radius:var(--radius) var(--radius) 0 0;padding:24px 26px 18px}
+.footer-actions{display:flex;gap:8px}
+.footer-actions form{display:inline-flex;margin:0}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid #79200644;margin-top:20px;padding-top:16px;font-size:11px}
+.footer-bottom nav{display:flex;flex-wrap:wrap;gap:14px}
+.footer-bottom a,.footer-bottom button{display:inline-flex;align-items:center;min-height:30px;background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer}
+.footer-bottom a:hover,.footer-bottom button:hover{text-decoration:underline}
+.footer-bottom small{font-size:inherit}
+
+/* DESKTOP: same visual language, wider cards and controlled reading measure. */
+@media(min-width:900px){
+    .hero{aspect-ratio:1.5;margin-top:30px}
+    .hero-title{font-size:23cqw;line-height:.84;padding-top:0}
+    .hero-burger{width:61%;left:19.5%;top:3cqw}
+    .flavor-stamp{width:13.5cqw;height:13.5cqw;right:20%;top:12%}
+    .flavor-stamp strong{font-size:2.7cqw}
+    .flavor-stamp span{font-size:1.2cqw}
+    .promo-grid{grid-template-columns:1.6fr .85fr 1.15fr;gap:14px}
+    .flavor-card{grid-column:auto;min-height:0}
+    .promo-card{height:32cqw}
+    .flavor-burger{width:100%;left:-32%;top:17%}
+    .flavor-copy{margin:8% 5% 8% 48%;align-self:flex-start}
+    .flavor-copy h2{font-size:3.6cqw}
+    .flavor-copy p{font-size:1.3cqw;margin-top:16px;line-height:1.35}
+    .fries-card h2{font-size:3.8cqw;padding:10%;width:90%}
+    .fries-card img{width:93%;right:-8%;bottom:-7%}
+    .crown-badge{font-size:3cqw;width:4cqw;right:4%;top:5%}
+    .discover-card h2{font-size:3.5cqw;width:90%;padding:9%}
+    .discover-card img{width:110%;right:-25%;bottom:-11%}
+    .promo-note{font-size:10px;bottom:4%}
+    .ingredients{min-height:155cqw;margin-block:7cqw 4cqw}
+    .ingredient-type{font-size:10.7cqw;line-height:1.01}
+    .ingredient-burger{width:50%;left:25%;top:0;height:100%}
+    .review-card{grid-template-columns:29% 1fr;gap:5%;padding:3%;min-height:39cqw}
+    .review-content{padding-right:3%}
+    .review-slide blockquote{font-size:4.4cqw}
+    .review-slide figcaption{font-size:18px}
+    .example-label{font-size:12px;margin-bottom:20px}
+    .review-controls{margin-top:16px}
+    .footer-teaser{min-height:35cqw}
+    .footer-copy{padding-top:8cqw;width:48%}
+    .footer-copy h2{font-size:5cqw}
+    .footer-copy p{font-size:17px;max-width:65%}
+    .footer-burger{width:62%;right:-10%;top:2%}
+    .footer-fries{width:35%;right:22%;top:0}
+}
+
+/* MOBILE: preserve the reference layout while retaining 44px tap targets. */
+@media(max-width:599px){
+    :root{--radius:14px}
+    .site-header{padding-block:10px;gap:6px}
+    .brand-pill{font-size:17px;padding:6px 10px;gap:5px}
+    .brand-pill img{width:19px;height:19px}
+    .pill{font-size:11px;padding:8px 10px;gap:5px}
+    .header-actions{gap:5px}
+    .nav-panel{right:-82px;width:min(260px,80vw)}
+    .hero{margin-top:22px;margin-bottom:6px}
+    .flavor-stamp{border-width:2px;box-shadow:inset 0 0 0 2px #79200635,inset 0 0 0 3px var(--yellow)}
+    .promo-grid{gap:6px}
+    .flavor-copy p{margin-top:10px;font-size:3.2cqw}
+    .review-slide blockquote{font-size:5.35cqw}
+    .review-slide figcaption{font-size:11px;margin-top:12px}
+    .review-card{padding:3%;gap:5%}
+    .example-label{font-size:9px;margin-bottom:7px}
+    .review-controls{gap:2px;margin-top:5px}
+    .review-counter{font-size:22px;min-width:36px}
+    .arrow-button{width:44px;height:44px;font-size:17px}
+    .promo-note{font-size:8px;padding:3px 4px}
+    .footer-copy{width:48%;padding-top:10cqw}
+    .footer-copy h2{font-size:6cqw}
+    .footer-copy p{font-size:11px;margin-top:10px}
+    .footer-teaser{min-height:48cqw}
+    .footer-panel{padding:16px 12px 12px}
+    .footer-bottom{font-size:9px;gap:8px;align-items:flex-start;margin-top:12px;padding-top:8px;flex-direction:column}
+    .footer-bottom nav{gap:14px}
+}
+@media(max-width:359px){
+    .landing-shell{width:92%}
+    .brand-pill{font-size:15px;padding-inline:8px}
+    .pill{padding-inline:8px;font-size:10px}
+    .flavor-copy p{font-size:11px}
+    .review-card{grid-template-columns:31% 1fr;gap:4%}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* Daftar menu menyatu dengan mainpage. Semua selector dibatasi ke bagian menu. */
+.home-menu{margin-top:70px;scroll-margin-top:24px;padding:32px 0;border-block:1px solid #ddbf9d}
+.home-menu-heading{display:flex;justify-content:space-between;gap:25px;align-items:flex-end;margin-bottom:30px}
+.home-menu-heading h2{font-size:clamp(38px,6cqw,68px);line-height:.95}
+.menu-eyebrow{display:block;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.home-menu-heading p{margin:0;line-height:1.6;font-size:14px;text-align:right}
+.home-menu-heading p span{color:#805747}
+.home-menu-filter{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:28px;padding:22px;background:#ffe7b5;border:1px solid #ddbf9d;border-radius:18px}
+.home-menu-filter>div:first-child{flex:2;min-width:180px}
+.home-menu-filter>div:nth-child(2){flex:1;min-width:160px}
+.home-menu-filter label{display:block;font-size:12px;font-weight:700;margin-bottom:8px}
+.home-menu-filter input,.home-menu-filter select{width:100%;min-height:46px;padding:10px 12px;border:1px solid #b88969;border-radius:10px;background:#fffaf0;color:var(--brown);font:inherit;font-size:16px}
+.home-menu :focus-visible{outline:3px solid var(--brown);outline-offset:4px}
+.menu-button{display:inline-flex;justify-content:center;align-items:center;min-height:46px;padding:11px 18px;border:1px solid var(--brown);border-radius:999px;background:var(--yellow);color:var(--brown);font:inherit;font-size:13px;font-weight:700;text-align:center;cursor:pointer}
+.menu-button:hover:not(:disabled){background:var(--brown);color:var(--cream)}
+.menu-button:disabled{opacity:.5;cursor:not-allowed}
+.menu-reset{display:inline-flex;align-items:center;min-height:46px;font-size:13px;text-decoration:underline}
+.home-product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.home-product-card{display:flex;flex-direction:column;border:1px solid #ddbf9d;border-radius:22px;background:#fffaf0;overflow:hidden}
+.home-product-image{display:block;position:relative;aspect-ratio:4/3;background:#ffe7b5}
+.home-product-image img{width:100%;height:100%;object-fit:cover}
+.home-product-image small{position:absolute;bottom:10px;left:10px;background:#fffaf0;padding:5px 8px;border-radius:6px;font-size:10px}
+.home-product-content{padding:23px;display:flex;flex:1;flex-direction:column}
+.home-product-content .menu-eyebrow{color:#805747;font-size:10px;margin-bottom:9px}
+.home-product-content h3{font-size:28px;line-height:1.05}
+.home-product-content>p{font-size:13px;line-height:1.65;color:#805747;flex:1;margin:12px 0 18px}
+.home-product-price{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}
+.home-product-price strong{font-size:20px}
+.home-product-price small{font-size:11px;color:#805747}
+.home-product-actions{display:flex;flex-direction:column;gap:12px}
+.home-product-actions form{margin:0}
+.home-product-actions .menu-button{width:100%}
+.menu-customize{display:inline-flex;align-items:center;min-height:36px;font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.home-menu-empty{grid-column:1/-1;text-align:center;padding:50px 22px;background:#ffe7b5;border-radius:20px}
+.home-menu-empty h3{font-size:32px}
+.home-menu-empty p{line-height:1.5}
+.home-menu .pagination{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:18px;margin-top:30px;font-size:13px}
+.home-menu .pagination a{display:inline-flex;align-items:center;min-height:44px;border:1px solid #b88969;border-radius:999px;padding:10px 15px}
+.home-menu .pagination a:hover{background:var(--yellow)}
+.home-menu .pagination span{color:#805747}
+@media(max-width:899px){.home-product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.home-product-content{padding:18px}}
+@media(max-width:599px){.home-menu{margin-top:40px;padding-top:28px}.home-menu-heading{align-items:flex-start;flex-direction:column;gap:18px}.home-menu-heading p{text-align:left;font-size:13px}.home-menu-filter{padding:16px}.home-menu-filter>div{flex-basis:100%!important;min-width:0!important}.home-product-grid{grid-template-columns:1fr}.home-product-content h3{font-size:30px}.home-menu .pagination{gap:10px;font-size:12px}}

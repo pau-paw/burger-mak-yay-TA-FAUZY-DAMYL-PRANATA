@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'accepted' => ':attribute harus disetujui.',
+    'required' => ':attribute wajib diisi.',
+    'email' => ':attribute harus berupa email yang valid.',
+    'string' => ':attribute harus berupa teks.',
+    'integer' => ':attribute harus berupa bilangan bulat.',
+    'boolean' => ':attribute tidak valid.',
+    'confirmed' => 'Konfirmasi :attribute tidak cocok.',
+    'unique' => ':attribute sudah digunakan.',
+    'exists' => ':attribute yang dipilih tidak ditemukan.',
+    'in' => ':attribute yang dipilih tidak valid.',
+    'uuid' => ':attribute tidak valid. Muat ulang halaman.',
+    'regex' => 'Format :attribute tidak valid.',
+    'image' => ':attribute harus berupa gambar yang valid.',
+    'mimes' => ':attribute harus berupa file :values.',
+    'extensions' => 'Ekstensi :attribute harus :values.',
+    'dimensions' => 'Dimensi :attribute terlalu besar (maksimal 4096 × 4096).',
+    'max' => ['numeric' => ':attribute maksimal :max.', 'string' => ':attribute maksimal :max karakter.', 'file' => ':attribute maksimal :max KB.', 'array' => ':attribute maksimal :max item.'],
+    'min' => ['numeric' => ':attribute minimal :min.', 'string' => ':attribute minimal :min karakter.', 'file' => ':attribute minimal :min KB.', 'array' => ':attribute minimal :min item.'],
+    'password' => ['letters' => ':attribute harus mengandung huruf.', 'numbers' => ':attribute harus mengandung angka.'],
+    'attributes' => [
+        'name' => 'Nama', 'email' => 'Email', 'password' => 'Kata sandi', 'phone' => 'Nomor telepon',
+        'customer_name' => 'Nama pemesan', 'category_id' => 'Kategori', 'description' => 'Deskripsi',
+        'price' => 'Harga', 'stock' => 'Stok', 'quantity' => 'Jumlah', 'image' => 'Foto',
+        'is_active' => 'Status menu', 'notes' => 'Catatan', 'checkout_token' => 'Token checkout',
+        'payment_received' => 'Konfirmasi penerimaan pembayaran',
+    ],
+];

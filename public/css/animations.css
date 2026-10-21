@@ -1,0 +1,570 @@
+/**
+ * Burger Mak Yay - Motion & Animation System
+ * 1. Scroll Animations (Animasi Gulir)
+ * 2. Loading Animations (Animasi Pemuatan)
+ * 3. Hover Animations (Animasi Saat Kursor Diarahkan)
+ */
+
+/* ==========================================================================
+   1. LOADING ANIMATIONS (ANIMASI PEMUATAN)
+   ========================================================================== */
+
+/* Top Loading Progress Bar */
+#page-loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3.5px;
+    width: 0%;
+    background: linear-gradient(90deg, #ffbf00, #ff6b35, #ffbf00);
+    background-size: 200% 100%;
+    z-index: 99999;
+    box-shadow: 0 0 12px rgba(255, 191, 0, 0.8), 0 0 5px rgba(255, 107, 53, 0.5);
+    transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    pointer-events: none;
+    animation: loadingBarGlow 1.5s infinite linear;
+}
+
+#page-loading-bar.is-finished {
+    width: 100% !important;
+    opacity: 0;
+}
+
+@keyframes loadingBarGlow {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 200% 0%; }
+}
+
+/* Page Initial Content Fade-in */
+body {
+    animation: pageEntrance 0.5s ease-out;
+}
+
+@keyframes pageEntrance {
+    from {
+        opacity: 0.88;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Button Submit Spinner & Loading State */
+.button.is-loading,
+button[type="submit"][data-submitting="true"],
+.menu-button.is-loading {
+    position: relative;
+    pointer-events: none;
+    cursor: wait !important;
+}
+
+.spinner-icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinRotate 0.65s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+@keyframes spinRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Image Shimmer / Skeleton Pulse */
+.product-image,
+.home-product-image,
+.detail-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img,
+.home-product-image img,
+.detail-image img {
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle Shimmer Effect on Images Before Fully Loaded */
+.img-loading {
+    background: linear-gradient(90deg, #f3ede2 25%, #fcedd0 50%, #f3ede2 75%);
+    background-size: 200% 100%;
+    animation: shimmerEffect 1.6s infinite ease-in-out;
+}
+
+@keyframes shimmerEffect {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+
+/* ==========================================================================
+   2. SCROLL ANIMATIONS (ANIMASI GULIR)
+   ========================================================================== */
+
+/* Elements prepared for scroll reveal */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.scroll-reveal.reveal-left {
+    transform: translateX(-30px);
+}
+
+.scroll-reveal.reveal-right {
+    transform: translateX(30px);
+}
+
+.scroll-reveal.reveal-zoom {
+    transform: scale(0.92);
+}
+
+/* When element is scrolled into viewport */
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Background Typography Down-to-Up Scroll Animation & Hardware Acceleration */
+.hero {
+    overflow: hidden;
+}
+
+.hero-title {
+    will-change: transform;
+    transform: translate3d(0, var(--hero-ty, 0px), 0);
+    transition: transform 0.06s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-title .hero-line {
+    display: block;
+    width: max-content;
+    margin-inline: auto;
+    animation: heroLineRise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(var(--line-idx, 0) * 0.12s);
+}
+
+@keyframes heroLineRise {
+    from {
+        opacity: 0;
+        transform: scaleX(1.18) translateY(45px);
+    }
+    to {
+        opacity: 1;
+        transform: scaleX(1.18) translateY(0);
+    }
+}
+
+/* Ingredients Section Background Text Down-to-Up Scroll Parallax */
+.ingredient-type {
+    will-change: transform;
+    transform: translate3d(0, var(--ingredient-ty, 0px), 0);
+    transition: transform 0.06s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Rendering performance optimization: content-visibility for offscreen sections */
+.ingredients,
+.review-card,
+.landing-footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px;
+}
+
+/* Floating animation for Hero Burger on Landing Page */
+.hero-burger {
+    animation: floatBurger 4.8s ease-in-out infinite;
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease !important;
+}
+
+.hero:hover .hero-burger,
+.hero-burger:hover {
+    transform: translateY(-8px) scale(1.03) rotate(1.2deg) !important;
+    filter: drop-shadow(0 24px 20px rgba(84, 32, 12, 0.22)) !important;
+}
+
+@keyframes floatBurger {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(1.2deg);
+    }
+}
+
+/* Gentle pulse for flavor stamp */
+.flavor-stamp {
+    animation: stampPulse 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes stampPulse {
+    0% {
+        transform: rotate(-15deg) scale(1);
+    }
+    100% {
+        transform: rotate(-12deg) scale(1.04);
+    }
+}
+
+
+/* ==========================================================================
+   3. HOVER ANIMATIONS (ANIMASI SAAT KURSOR DIARAHKAN)
+   ========================================================================== */
+
+/* Buttons & CTA Pills */
+.button,
+.menu-button,
+.pill,
+.order-pill,
+.shop-brand,
+.brand-pill,
+.shop-nav a,
+.shop-nav button,
+.link-button,
+.copy-button,
+.whatsapp-button {
+    transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.22s ease,
+                background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease !important;
+}
+
+.button:hover,
+.menu-button:hover,
+.pill:hover,
+.order-pill:hover,
+.shop-nav a:hover,
+.shop-nav button:hover,
+.copy-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(121, 32, 6, 0.18), 0 2px 6px rgba(121, 32, 6, 0.1) !important;
+}
+
+.button:active,
+.menu-button:active,
+.pill:active,
+.order-pill:active,
+.shop-nav a:active,
+.shop-nav button:active,
+.copy-button:active {
+    transform: translateY(1px) scale(0.97) !important;
+    box-shadow: 0 2px 6px rgba(121, 32, 6, 0.12) !important;
+}
+
+/* Brand Pills & Logo Hover */
+.brand-pill:hover,
+.shop-brand:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 16px rgba(121, 32, 6, 0.14);
+}
+
+.brand-pill img,
+.shop-brand img {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.brand-pill:hover img,
+.shop-brand:hover img {
+    transform: rotate(12deg) scale(1.12);
+}
+
+/* Cards Hover (Product Cards, Promo Cards, Addon Cards, Choice Cards) */
+.product-card,
+.home-product-card {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.25s ease !important;
+    will-change: transform, box-shadow;
+}
+
+.product-card:hover,
+.home-product-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 36px rgba(121, 32, 6, 0.12), 0 4px 10px rgba(121, 32, 6, 0.06) !important;
+    border-color: #79200644 !important;
+}
+
+/* Product Card Image Zoom on Card Hover */
+.product-card:hover .product-image img,
+.home-product-card:hover .home-product-image img {
+    transform: scale(1.07);
+}
+
+/* Promo Cards (Mainpage Hero Promo Grid) */
+.promo-card {
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.promo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px rgba(121, 32, 6, 0.16), 0 4px 10px rgba(121, 32, 6, 0.08) !important;
+}
+
+/* Promo Card internal images lift/wiggle on hover */
+.flavor-card img.flavor-burger {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.flavor-card:hover img.flavor-burger {
+    transform: rotate(-4deg) scale(1.06) translateY(-4px);
+}
+
+.fries-card img {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fries-card:hover img {
+    transform: rotate(12deg) scale(1.08) translateY(-4px);
+}
+
+.discover-card img {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.discover-card:hover img {
+    transform: rotate(7deg) scale(1.08) translateY(-3px);
+}
+
+/* Crown Badge on fries card wiggle on hover */
+.crown-badge {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fries-card:hover .crown-badge {
+    transform: rotate(0deg) scale(1.18);
+}
+
+/* Addon Cards Hover */
+.addon-card {
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+                border-color 0.2s ease,
+                background-color 0.2s ease,
+                box-shadow 0.2s ease !important;
+}
+
+.addon-card:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 6px 14px rgba(121, 32, 6, 0.08);
+}
+
+/* Choice Cards Hover (Pickup / Delivery / Cash / QRIS) */
+.choice-card {
+    transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+                border-color 0.2s ease,
+                box-shadow 0.2s ease !important;
+}
+
+.choice-card:not(.disabled):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 22px rgba(121, 32, 6, 0.1);
+}
+
+/* Navigation Icons Micro-Animation */
+.nav-item {
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+                color 0.18s ease !important;
+}
+
+.nav-item:hover {
+    transform: translateY(-2px);
+}
+
+.nav-item:hover .nav-svg {
+    transform: scale(1.12);
+}
+
+.nav-svg {
+    transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Count badge bounce on hover */
+.count,
+[data-cart-count],
+.shop-count {
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+a:hover .count,
+a:hover [data-cart-count],
+a:hover .shop-count {
+    transform: scale(1.22);
+}
+
+/* Detail Image Hover on Product Page */
+.detail-image img {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.detail-image:hover img {
+    transform: scale(1.04);
+}
+
+/* Form Input & Select Smooth Transitions */
+input:not([type=checkbox]):not([type=radio]),
+select,
+textarea {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+
+input:not([type=checkbox]):not([type=radio]):focus,
+select:focus,
+textarea:focus {
+    box-shadow: 0 0 0 3px rgba(255, 191, 0, 0.45), 0 2px 8px rgba(121, 32, 6, 0.08) !important;
+}
+
+/* Reviews Carousel Control Arrows */
+.arrow-button {
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease !important;
+}
+
+.arrow-button:hover {
+    transform: scale(1.12);
+}
+
+.arrow-button:active {
+    transform: scale(0.92);
+}
+
+/* Exploded Burger Scroll / Hover Interaction */
+.ingredient-burger {
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ingredients:hover .ingredient-burger {
+    transform: scale(1.03);
+}
+
+/* ==========================================================================
+   CATEGORY PILLS (STYLE GAMBAR 2 DENGAN WARNA INVERT)
+   ========================================================================== */
+.category-pill-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+}
+
+.category-field-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--brown, #792006);
+    margin-bottom: 2px;
+}
+
+.category-pill-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.category-pill-label {
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+    display: inline-flex;
+}
+
+.category-pill-label input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    margin: 0;
+}
+
+/* Gaya Pill Berwarna Terbalik dari Gambar 2 (Cari Menu):
+   Gambar 2: Background Kuning (#ffbf00) + Teks Cokelat (#792006)
+   Invert: Background Cokelat (#792006) + Teks Kuning (#ffbf00)
+*/
+.category-pill-text {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 46px;
+    padding: 11px 22px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    background: #792006;
+    color: #ffbf00;
+    border: 1.5px solid #792006;
+    transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+                background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 3px 0 rgba(121, 32, 6, 0.15);
+}
+
+/* Hover State */
+.category-pill-label:hover .category-pill-text {
+    transform: translateY(-2px) scale(1.03);
+    background: #541702;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(121, 32, 6, 0.25);
+}
+
+.category-pill-label:active .category-pill-text {
+    transform: translateY(1px) scale(0.97);
+}
+
+/* Selected / Active State */
+.category-pill-label.is-active .category-pill-text,
+.category-pill-label:has(input:checked) .category-pill-text {
+    background: #541702;
+    color: #ffbf00;
+    border-color: #ffbf00;
+    box-shadow: 0 0 0 2px #792006, 0 0 0 4px #ffbf00, 0 6px 14px rgba(121, 32, 6, 0.22);
+    transform: translateY(-1px);
+}
+
+/* Focus Visible */
+.category-pill-label:has(input:focus-visible) .category-pill-text {
+    outline: 3px solid #792006;
+    outline-offset: 4px;
+}
+
+/* ==========================================================================
+   4. ACCESSIBILITY (PREFERS-REDUCED-MOTION)
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .scroll-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .hero-burger,
+    .flavor-stamp {
+        animation: none !important;
+    }
+
+    #page-loading-bar {
+        display: none !important;
+    }
+}

@@ -1,0 +1,94 @@
+/* Tema pelanggan; dimuat setelah store.css, tidak dimuat untuk dashboard admin. */
+@font-face{font-family:'Lilita One';src:url('../fonts/LilitaOne-Regular.ttf') format('truetype');font-style:normal;font-weight:400;font-display:swap}
+:root{--ink:#792006;--muted:#805747;--paper:#fff1dc;--white:#fffaf0;--cream:#ffe7b5;--accent:#792006;--line:#ddbf9d;--sage:#ffdf8b;--danger:#a42620;--radius:22px;--yellow:#ffbf00;--display:'Lilita One','Arial Black',sans-serif}
+body.storefront{color:var(--ink);background:var(--paper);font-family:Arial,Helvetica,sans-serif}
+.storefront h1,.storefront h2,.storefront h3{font-family:var(--display);font-weight:400;letter-spacing:-.025em;color:var(--ink)}
+.storefront h1{font-size:clamp(38px,5vw,62px);line-height:1.02}
+.storefront h2{font-size:32px;line-height:1.08}
+.storefront h3{font-size:23px;line-height:1.12}
+.storefront .container{width:86%;max-width:1120px;padding:32px 0 72px;min-height:62vh}
+.shop-header{width:86%;max-width:1120px;margin:auto;padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:18px;border-bottom:1px solid var(--line)}
+.shop-brand{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid #b77252;border-radius:999px;white-space:nowrap;min-height:44px;font-family:var(--display);font-size:24px;line-height:1}
+.shop-brand img{width:24px;height:24px}
+.shop-nav{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:8px;font-size:13px;font-weight:700}
+.shop-nav a,.shop-nav button{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;border:1px solid #b77252;border-radius:999px;padding:8px 15px;color:var(--ink);background:transparent;font:inherit;cursor:pointer}
+.shop-nav a:hover,.shop-nav button:hover,.shop-nav .current{background:var(--yellow)}
+.shop-count{display:grid;place-items:center;min-width:22px;height:22px;border-radius:50%;padding:2px 5px;background:var(--ink);color:var(--paper);font-size:11px;line-height:1}
+.storefront :focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+.storefront .button{background:var(--yellow);color:var(--ink);border:1px solid var(--ink);border-radius:999px;min-height:46px;padding:12px 22px;gap:10px;font-weight:700;box-shadow:0 3px 0 #79200615}
+.storefront .button:hover{background:var(--ink);color:var(--paper)}
+.storefront .button.outline{background:transparent;color:var(--ink)}
+.storefront .button.outline:hover{background:var(--cream)}
+.storefront .button.small{min-height:44px}
+.storefront .link-button,.storefront .text-link{color:var(--ink)}
+.storefront .danger{color:var(--danger)}
+.storefront .back{border-bottom:1px solid var(--line);padding-bottom:6px;font-weight:700}
+.storefront .panel,.storefront .auth-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 5px 0 #79200609}
+.storefront .page-heading{margin:20px 0 34px}
+.storefront .page-heading .eyebrow{color:var(--muted)}
+.storefront .empty{padding:55px 24px;background:var(--white);border:1px solid var(--line)}
+.storefront .empty:before{content:'';display:block;width:140px;height:140px;margin:0 auto 20px;background:url('../images/landing/hero-burger.webp') center/contain no-repeat}
+.storefront .empty h2{font-size:clamp(28px,4vw,40px)}
+.storefront .summary{background:var(--yellow);border-color:#b77815}
+.storefront .summary p,.storefront .summary .breakdown-row{color:#69361c}
+.storefront .summary .button:not(.outline){background:var(--ink);color:var(--paper)}
+.storefront .summary .button:not(.outline):hover{background:#541702}
+.storefront .summary .total-row{border-color:#b7781566}
+.storefront .cart-row>img,.storefront .detail-image{background:var(--cream)}
+.storefront .cart-row{border-radius:18px}
+.storefront .cart-row h3{font-size:24px}
+.storefront .cart-row .quantity{max-width:80px}
+.storefront .large-price,.storefront .price,.storefront .grand-total-highlight{color:var(--ink)}
+.storefront .detail-grid{gap:48px}
+.storefront .detail-image{border:1px solid var(--line)}
+.storefront .detail-copy h1{font-size:clamp(36px,5vw,58px)}
+.storefront .field label{font-size:13px}
+.storefront input:not([type=checkbox]):not([type=radio]),.storefront select,.storefront textarea{background:#fffdf8;border-color:#cba986;border-radius:12px;color:#341608;min-height:46px;font-size:16px}
+.storefront input::placeholder,.storefront textarea::placeholder{color:#92725f}
+.storefront input[type=checkbox],.storefront input[type=radio]{accent-color:var(--ink)}
+.storefront .choice-card{background:#fffdf8;border-color:var(--line);border-radius:18px}
+.storefront .choice-card.selected,.storefront .choice-card:has(input:checked){background:#ffe8a3;border-color:var(--ink);box-shadow:0 3px 0 #79200615}
+.storefront .choice-card:has(input:focus-visible){outline:3px solid var(--ink);outline-offset:4px}
+.storefront .choice-card.disabled{background:#eee3d3}
+.storefront .addon-card{background:#fffdf8;border-radius:14px}
+.storefront .addon-card:hover,.storefront .addon-card:has(input:checked){background:#ffe8a3;border-color:var(--ink)}
+.storefront .addon-badge,.storefront .addon-chip,.storefront .addon-mini,.storefront .info-badges span{background:var(--cream);color:#69361c}
+.storefront .info-box,.storefront .product-total-preview,.storefront .order-summary-box{background:var(--cream);border:1px solid var(--line)}
+.storefront .auth-card{position:relative;max-width:560px;padding:40px;margin:32px auto 50px;border-top:8px solid var(--yellow)}
+.storefront .auth-card:before{content:'';display:block;width:96px;height:96px;margin:0 0 18px;background:url('../images/landing/hero-burger.webp') center/contain no-repeat}
+.storefront .auth-card h1{font-size:clamp(34px,4vw,46px)}
+.storefront .auth-card .stack{gap:20px}
+.storefront .auth-foot{border-color:var(--line)}
+.storefront .payment-action-card{border:2px solid var(--ink);background:var(--white);border-radius:24px;box-shadow:0 6px 0 #79200612}
+.storefront .qris-header{padding-bottom:18px;border-bottom:1px solid var(--line)}
+.storefront .qris-header h3{font-size:30px}
+.storefront .qris-qr-wrapper{background:#fff;border:1px solid var(--line);border-radius:18px}
+/* QR asli tetap putih dan tanpa filter agar tidak mengubah pola untuk pemindai. */
+.storefront .qris-image{background:#fff;filter:none;box-shadow:none}
+.storefront .amount-card{background:var(--yellow);border-color:#b77815;border-radius:16px}
+.storefront .amount-value{color:var(--ink);font-size:clamp(23px,3vw,30px);overflow-wrap:anywhere}
+.storefront .amount-value-row{flex-wrap:wrap}
+.storefront .copy-button{background:var(--paper);color:var(--ink);border-color:var(--ink);border-radius:999px;min-height:44px}
+.storefront .copy-button:hover{background:var(--cream)}
+.storefront .whatsapp-button,.storefront .whatsapp-outline-btn{background:#087f46!important;border-color:#087f46!important;color:#fff!important;border-radius:999px!important;box-shadow:none;min-height:46px}
+.storefront .whatsapp-button:hover,.storefront .whatsapp-outline-btn:hover{background:#066739!important;border-color:#066739!important;box-shadow:none}
+.storefront .cash-payment-info-box{background:#ffe8a3;border-color:#b77815;color:var(--ink)}
+.storefront .cash-payment-info-box h3,.storefront .cash-payment-info-box p{color:var(--ink)}
+.storefront .upload-proof-box{border-color:#cba986}
+.storefront .file-input{max-width:100%}
+.storefront .proof-preview-row{flex-wrap:wrap}
+.storefront .proof-thumbnail{border-color:var(--line)}
+.storefront .payment-action-card.paid-card{background:#fff4ce;border-color:#9c6b27}
+.storefront .paid-check{background:var(--ink);color:var(--yellow)}
+.storefront .badge.pending{background:#ffe7a3;color:#784404}
+.storefront .badge.processing{background:#f4dfc9;color:#792006}
+.storefront .badge.ready,.storefront .badge.completed{background:#f4df9a;color:#5a3a0d}
+.storefront .badge.cancelled{background:#f8dfd4;color:#902616}
+.storefront .alert.success{background:#fff0b7;color:#613619;border-color:#ca9b4f}
+.storefront .alert.error{background:#ffe0d5;color:#8a241b;border-color:#ce8871}
+.storefront .order-line,.storefront .order-line-item{border-color:var(--line)}
+.storefront .footer{width:86%;max-width:1120px;margin:0 auto;background:var(--yellow);border:0;border-radius:22px 22px 0 0;padding:28px;gap:20px}
+.storefront .footer strong{font-family:var(--display);font-weight:400;font-size:22px}
+.storefront .footer span,.storefront .footer small{color:#69361c}
+@media(max-width:780px){.shop-header{flex-direction:column;align-items:flex-start;gap:15px}.shop-nav{justify-content:flex-start;gap:7px;width:100%}.shop-nav a,.shop-nav button{font-size:12px;padding:8px 12px}.storefront .container{padding-top:24px}.storefront .detail-grid{gap:26px}.storefront .footer{padding:24px;flex-wrap:wrap}.storefront .qris-display-area{grid-template-columns:1fr}.storefront .qris-qr-wrapper{width:100%;max-width:320px;margin-inline:auto}}
+@media(max-width:480px){.storefront .container,.shop-header,.storefront .footer{width:90%}.shop-brand{font-size:21px}.storefront .panel,.storefront .payment-action-card{padding:20px}.storefront .auth-card{padding:28px 22px;margin:12px auto 32px}.storefront .auth-card:before{width:80px;height:80px}.storefront .auth-card h1{font-size:36px}.storefront .button{padding-inline:17px}.storefront .qris-header h3{font-size:27px}.storefront .footer{padding:22px}.storefront .choice-content{gap:10px}.storefront .paid-success-banner{align-items:flex-start}.storefront .order-card>div:last-child{align-items:stretch}}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="400" viewBox="0 0 480 400" role="img" aria-label="Ilustrasi burger, bukan foto produk">
+<ellipse cx="240" cy="323" rx="160" ry="18" fill="#283b2c" opacity=".13"/>
+<path d="M93 272h294v20c0 26-43 44-147 44S93 318 93 292z" fill="#cc8338"/>
+<path d="M91 268h298v16c0 19-46 35-149 35S91 303 91 284z" fill="#edb962"/>
+<rect x="78" y="235" width="324" height="48" rx="24" fill="#65432f"/>
+<path d="m81 239 46-15 44 13 34-15 42 13 37-14 35 16 35-13 47 15-24 14-42-9-30 15-44-8-35 9-43-16-39 11-33-10-37 8z" fill="#758642"/>
+<path d="m99 210 87-12 60 5 137 7-63 51-47-36-67 21-30-25z" fill="#efc54d"/>
+<rect x="82" y="192" width="316" height="30" rx="15" fill="#b6442b"/>
+<path d="M87 183c0-69 65-113 153-113s153 44 153 113c0 12-27 19-153 19S87 195 87 183z" fill="#de9b47"/>
+<path d="M96 157c17-50 75-79 144-79 70 0 128 30 145 80-40 16-80 22-145 22s-105-6-144-23z" fill="#edb861"/>
+<g fill="#fff1c7"><ellipse cx="173" cy="118" rx="8" ry="3" transform="rotate(-25 173 118)"/><ellipse cx="211" cy="96" rx="8" ry="3" transform="rotate(15 211 96)"/><ellipse cx="252" cy="124" rx="8" ry="3" transform="rotate(-22 252 124)"/><ellipse cx="291" cy="105" rx="8" ry="3" transform="rotate(22 291 105)"/><ellipse cx="328" cy="143" rx="8" ry="3" transform="rotate(-18 328 143)"/><ellipse cx="144" cy="150" rx="8" ry="3" transform="rotate(20 144 150)"/><ellipse cx="203" cy="151" rx="8" ry="3" transform="rotate(-20 203 151)"/><ellipse cx="282" cy="154" rx="8" ry="3" transform="rotate(35 282 154)"/></g>
+</svg>

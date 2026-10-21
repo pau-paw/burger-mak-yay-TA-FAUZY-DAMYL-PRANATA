@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="400" viewBox="0 0 480 400" role="img" aria-label="Ilustrasi Kebab Spesial Mak Yay">
+  <!-- Subtle shadow -->
+  <ellipse cx="240" cy="330" rx="155" ry="18" fill="#283b2c" opacity=".12"/>
+  
+  <!-- Left Kebab Piece (Standing slightly tilted) -->
+  <g transform="translate(130, 80) rotate(-15)">
+    <!-- Tortilla wrap body -->
+    <path d="M 20 80 Q 20 220 50 250 Q 80 260 110 250 Q 140 220 140 80 Z" fill="#edd49a"/>
+    <path d="M 22 80 Q 22 215 50 245 Q 80 255 108 245 Q 138 215 138 80 Z" fill="#f8e5b9"/>
+    
+    <!-- Grill marks -->
+    <path d="M 30 130 Q 75 120 128 135" stroke="#a3632f" stroke-width="6" stroke-linecap="round" fill="none" opacity=".5"/>
+    <path d="M 26 165 Q 80 155 133 170" stroke="#a3632f" stroke-width="6" stroke-linecap="round" fill="none" opacity=".5"/>
+    <path d="M 32 205 Q 80 195 125 210" stroke="#a3632f" stroke-width="6" stroke-linecap="round" fill="none" opacity=".5"/>
+    
+    <!-- Top opening wrap fold -->
+    <ellipse cx="80" cy="80" rx="60" ry="32" fill="#edd49a"/>
+    <ellipse cx="80" cy="80" rx="55" ry="28" fill="#5c3826"/>
+    
+    <!-- Meat & Fillings inside top opening -->
+    <ellipse cx="80" cy="80" rx="52" ry="25" fill="#422517"/>
+    <!-- Beef chunks -->
+    <path d="M 45 75 Q 65 65 85 72 Q 105 66 115 78 Q 95 90 75 85 Q 55 90 45 75 Z" fill="#693318"/>
+    <circle cx="65" cy="74" r="7" fill="#7d3e1d"/>
+    <circle cx="95" cy="76" r="8" fill="#7d3e1d"/>
+    <!-- Fresh Lettuce greens -->
+    <path d="M 35 68 Q 50 55 60 70 Q 75 58 85 70 Q 65 85 35 68 Z" fill="#6b993b"/>
+    <path d="M 100 68 Q 115 55 125 72 Q 110 82 100 68 Z" fill="#7fb844"/>
+    <!-- Tomato reds -->
+    <path d="M 55 65 Q 70 60 75 70 Q 60 75 55 65 Z" fill="#d9432f"/>
+    <path d="M 90 62 Q 105 60 108 70 Q 95 74 90 62 Z" fill="#e8533c"/>
+    <!-- Melted Cheese drizzle -->
+    <path d="M 40 76 Q 60 88 78 82 Q 95 90 120 78 Q 105 84 80 80 Q 55 86 40 76 Z" fill="#ffbf00"/>
+    <path d="M 68 82 Q 72 98 70 108 Q 66 98 68 82 Z" fill="#ffbf00"/>
+    <path d="M 90 82 Q 93 96 91 104 Q 87 96 90 82 Z" fill="#ffbf00"/>
+  </g>
+  
+  <!-- Right Kebab Piece (Laid cut-side towards viewer) -->
+  <g transform="translate(210, 110) rotate(22)">
+    <!-- Tortilla wrap body -->
+    <path d="M 20 80 Q 20 230 50 260 Q 80 270 110 260 Q 140 230 140 80 Z" fill="#edd49a"/>
+    <path d="M 22 80 Q 22 225 50 255 Q 80 265 108 255 Q 138 225 138 80 Z" fill="#f8e5b9"/>
+    
+    <!-- Grill marks -->
+    <path d="M 28 135 Q 78 125 130 140" stroke="#a3632f" stroke-width="6" stroke-linecap="round" fill="none" opacity=".5"/>
+    <path d="M 25 175 Q 82 165 133 180" stroke="#a3632f" stroke-width="6" stroke-linecap="round" fill="none" opacity=".5"/>
+    <path d="M 32 215 Q 80 205 125 220" stroke="#a3632f" stroke-width="6" stroke-linecap="round" fill="none" opacity=".5"/>
+    
+    <!-- Top opening wrap fold -->
+    <ellipse cx="80" cy="80" rx="60" ry="32" fill="#edd49a"/>
+    <ellipse cx="80" cy="80" rx="55" ry="28" fill="#5c3826"/>
+    
+    <!-- Fillings inside -->
+    <ellipse cx="80" cy="80" rx="52" ry="25" fill="#422517"/>
+    <path d="M 45 75 Q 65 65 85 72 Q 105 66 115 78 Q 95 90 75 85 Q 55 90 45 75 Z" fill="#693318"/>
+    <circle cx="70" cy="75" r="9" fill="#7d3e1d"/>
+    <path d="M 40 65 Q 55 52 68 68 Q 80 55 92 68 Q 65 82 40 65 Z" fill="#7fb844"/>
+    <path d="M 60 62 Q 75 58 80 68 Q 65 72 60 62 Z" fill="#e8533c"/>
+    <path d="M 42 78 Q 62 88 80 82 Q 100 90 118 78 Q 98 84 80 80 Q 55 86 42 78 Z" fill="#ffbf00"/>
+    <path d="M 75 82 Q 78 102 76 112 Q 72 102 75 82 Z" fill="#ffbf00"/>
+  </g>
+</svg>
