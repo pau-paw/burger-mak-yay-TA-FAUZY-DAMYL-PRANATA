@@ -14,12 +14,21 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $filters = $request->validate(['q' => ['nullable', 'string', 'max:100'], 'archived' => ['nullable', 'boolean']]);
+        $filters = $request->validate([
+            'q' => ['nullable', 'string', 'max:100'],
+            'archived' => ['nullable', 'boolean'],
+            'sort' => ['nullable', 'string', 'in:name_asc,name_desc,latest'],
+        ]);
+
+        $sort = $filters['sort'] ?? null;
 
         return view('admin.products.index', ['products' => Product::with('category')
             ->when($request->boolean('archived'), fn ($query) => $query->onlyTrashed())
             ->when($filters['q'] ?? null, fn ($query, $q) => $query->where('name', 'like', '%'.$q.'%'))
-            ->latest()->paginate(12)->withQueryString()]);
+            ->when($sort === 'name_asc', fn ($query) => $query->orderBy('name', 'asc'))
+            ->when($sort === 'name_desc', fn ($query) => $query->orderBy('name', 'desc'))
+            ->when(!$sort || $sort === 'latest', fn ($query) => $query->latest())
+            ->paginate(12)->withQueryString()]);
     }
 
     public function create()

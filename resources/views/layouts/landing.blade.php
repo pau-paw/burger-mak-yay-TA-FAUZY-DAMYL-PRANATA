@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#fff1dc">
     <meta name="description" content="Burger Mak Yay. Pilih burger dan topping favoritmu, pesan pickup atau delivery, dan bayar dengan QRIS.">
-    <title>Burger Mak Yay · Smoky. Cheesy. Unforgettable.</title>
+    <title>Burger Mak Yay</title>
     <link rel="icon" href="{{ asset('images/landing/burger-icon.svg') }}" type="image/svg+xml">
     <link rel="preload" href="{{ asset('fonts/LilitaOne-Regular.ttf') }}" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="{{ asset('css/landing.css') }}">

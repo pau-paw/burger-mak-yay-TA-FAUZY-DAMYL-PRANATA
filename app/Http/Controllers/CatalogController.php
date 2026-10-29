@@ -14,13 +14,18 @@ class CatalogController extends Controller
         $filters = $request->validate([
             'q' => ['nullable', 'string', 'max:100'],
             'category' => ['nullable', 'integer'],
+            'sort' => ['nullable', 'string', 'in:name_asc,name_desc,latest'],
         ]);
+
+        $sort = $filters['sort'] ?? null;
 
         $products = Product::with('category')->where('is_active', true)
             ->when($filters['q'] ?? null, fn ($query, $q) => $query->where('name', 'like', '%' . $q . '%'))
             ->when($filters['category'] ?? null, fn ($query, $id) => $query->where('category_id', $id))
-            ->latest()
-            ->paginate(12)
+            ->when($sort === 'name_asc', fn ($query) => $query->orderBy('name', 'asc'))
+            ->when($sort === 'name_desc', fn ($query) => $query->orderBy('name', 'desc'))
+            ->when(!$sort || $sort === 'latest', fn ($query) => $query->latest())
+            ->paginate(24)
             ->withQueryString()
             ->fragment('menu');
 

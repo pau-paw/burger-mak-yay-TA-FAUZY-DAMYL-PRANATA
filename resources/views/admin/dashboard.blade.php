@@ -34,11 +34,8 @@
     <article class="stat-card stat-brown">
         <div class="stat-card-head">
             <span class="stat-eyebrow">TOTAL OMZET BERSIH</span>
-            <span class="crown-badge" aria-hidden="true">♛</span>
         </div>
         <strong class="stat-number display">Rp {{ number_format($revenue, 0, ',', '.') }}</strong>
-        <p class="stat-note">Pesanan berstatus selesai &amp; lunas</p>
-        <img class="stat-corner-asset" src="{{ asset('images/landing/fries.webp') }}" width="300" height="300" alt="" aria-hidden="true">
     </article>
 
     {{-- Card 2: Pesanan Aktif (Vibrant Cheese Yellow - Flavor Card Style) --}}
@@ -48,7 +45,6 @@
             <span class="live-pill"><span class="pulse-dot"></span> Perlu Tindakan</span>
         </div>
         <strong class="stat-number display">{{ $openOrders }}</strong>
-        <p class="stat-note">Menunggu sampai siap diambil / diantar</p>
         <a class="stat-link" href="{{ route('admin.orders.index') }}">Lihat antrean pesanan &rarr;</a>
     </article>
 
@@ -59,7 +55,6 @@
             <span class="stat-mini-badge">🍔 KATALOG</span>
         </div>
         <strong class="stat-number display">{{ $productCount }}</strong>
-        <p class="stat-note">Varian produk &amp; paket terdaftar di kedai</p>
         <a class="stat-link" href="{{ route('admin.products.index') }}">Kelola daftar menu &rarr;</a>
     </article>
 
@@ -70,8 +65,6 @@
             <span class="stat-mini-badge">👥 MEMBER</span>
         </div>
         <strong class="stat-number display">{{ $customerCount }}</strong>
-        <p class="stat-note">Akun pembeli terdaftar di Mak Yay</p>
-        <span class="stat-tag">Komunitas Mak Yay</span>
     </article>
 </section>
 

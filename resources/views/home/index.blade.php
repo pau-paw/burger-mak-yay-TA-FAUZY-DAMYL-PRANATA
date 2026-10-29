@@ -29,31 +29,31 @@
 {{-- Menu dapat dipesan langsung dari mainpage, tanpa halaman katalog terpisah. --}}
 @include('partials.home-menu')
 
-{{-- 3. INGREDIENTS — skala dan posisi gambar diatur di .ingredient-burger. --}}
-<section class="ingredients" aria-labelledby="ingredients-title">
-    <h2 id="ingredients-title" class="visually-hidden">Rasa besar di setiap lapisan burger</h2>
-    <p class="ingredient-type display" lang="en">@foreach(config('landing.story_lines') as $line)<span>{{ $line }}</span>@endforeach</p>
-    <img class="ingredient-burger" src="{{ asset('images/landing/exploded-burger.webp') }}" width="725" height="2170" alt="Lapisan burger: roti wijen, keju, tomat, bawang, daging panggang, patty sapi, selada, dan roti bawah" loading="lazy" decoding="async">
-</section>
-
 {{-- 4. ULASAN — dapat dioperasikan dengan tombol dan keyboard; tanpa autoplay. --}}
 @if(count(config('landing.reviews', [])) > 0)
 <section class="review-card" aria-label="Cerita pencinta burger" aria-roledescription="carousel" data-review-carousel>
     <img class="review-photo" src="{{ asset('images/landing/customer.webp') }}" width="1086" height="1448" alt="Ilustrasi seorang pengunjung menikmati burger" loading="lazy" decoding="async">
     <div class="review-content">
-        @if(config('landing.reviews_are_examples'))<span class="example-label">Contoh ulasan · ilustrasi</span>@endif
         <div class="review-slides" aria-live="polite" aria-atomic="true">
             @foreach(config('landing.reviews') as $review)
                 <figure class="review-slide" data-review-slide @if(!$loop->first) hidden @endif role="group" aria-roledescription="slide" aria-label="{{ $loop->iteration }} dari {{ $loop->count }}">
                     <blockquote class="display" lang="en">{{ $review['quote'] }}</blockquote>
-                    <figcaption>— {{ $review['name'] }}</figcaption>
+                    <figcaption> {{ $review['name'] }}</figcaption>
                 </figure>
             @endforeach
         </div>
         <div class="review-controls" data-review-controls hidden>
-            <button type="button" class="arrow-button" data-review-prev aria-label="Ulasan sebelumnya">←</button>
+            <button type="button" class="arrow-button" data-review-prev aria-label="Ulasan sebelumnya">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                    <polygon points="19,4 5,12 19,20"/>
+                </svg>
+            </button>
             <span class="review-counter"><strong data-review-number>1</strong><span>/{{ count(config('landing.reviews')) }}</span></span>
-            <button type="button" class="arrow-button" data-review-next aria-label="Ulasan berikutnya">→</button>
+            <button type="button" class="arrow-button" data-review-next aria-label="Ulasan berikutnya">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+                    <polygon points="5,4 19,12 5,20"/>
+                </svg>
+            </button>
         </div>
     </div>
 </section>
@@ -88,17 +88,7 @@
                 </a>
             @endauth
         </nav>
-        <div class="footer-bottom">
-            <nav aria-label="Tautan pelanggan">
-                @auth
-                    <form action="{{ route('logout') }}" method="POST" style="display:inline;margin:0;">
-                        @csrf
-                        <button type="submit" class="footer-bottom-logout">Logout</button>
-                    </form>
-                @else
-                    <a href="{{ route('login') }}">Login</a>
-                @endauth
-            </nav>
+        <div class="footer-bottom" style="justify-content: flex-end;">
             <small>© {{ date('Y') }} Burger Mak Yay. All rights reserved.</small>
         </div>
     </div>

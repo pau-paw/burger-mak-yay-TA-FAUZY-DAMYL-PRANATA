@@ -80,8 +80,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
 .review-counter{font-family:var(--display);font-size:28px;white-space:nowrap;min-width:45px;text-align:center}
 .review-counter strong{font-weight:400}
 .review-counter>span{opacity:.55}
-.arrow-button{border:1px solid #79200655;border-radius:50%;width:44px;height:44px;padding:0;background:none;font-size:20px}
-.arrow-button:hover{background:var(--cream)}
+.arrow-button{border:none;border-radius:0;width:36px;height:36px;padding:0;background:none;color:var(--brown);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform 0.15s ease, opacity 0.15s ease}
+.arrow-button:hover{background:none;opacity:0.7;transform:scale(1.15)}
 
 /* 5. Footer. Clip only decorative images, never navigation or keyboard focus. */
 .landing-footer{position:relative;margin-top:5cqw}
@@ -157,7 +157,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var
     .example-label{font-size:9px;margin-bottom:7px}
     .review-controls{gap:2px;margin-top:5px}
     .review-counter{font-size:22px;min-width:36px}
-    .arrow-button{width:44px;height:44px;font-size:17px}
+    .arrow-button{width:36px;height:36px;border:none}
     .promo-note{font-size:8px;padding:3px 4px}
     .footer-copy{width:48%;padding-top:10cqw}
     .footer-copy h2{font-size:6cqw}

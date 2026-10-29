@@ -4,15 +4,15 @@
 return [
     'brand' => 'Mak Yay',
     'hero_lines' => ['YUMMY', 'TASTY', 'SAVORY'],
-    'badge_top' => 'MAK YAY',
-    'badge_main' => 'ONE BITE',
-    'badge_bottom' => 'BIG FLAVOR',
-    'flavor_title' => 'Flavor That Makes History!',
-    'flavor_description' => 'Every bite is bold, smoky, and unforgettable.',
+    'badge_top' => 'BURGER',
+    'badge_main' => 'MAK YAY',
+    'badge_bottom' => 'KEBAB',
+    'flavor_title' => 'Penyelamat Perut Lapar',
+    'flavor_description' => 'Setiap gigitannya sangat terasa dan tak terlupakan.',
     // Contoh materi promosi, tidak mengubah harga atau isi checkout.
-    'fries_title' => 'Free Fries Menu Order!',
-    'promo_note' => 'Cooming soon',
-    'discover_title' => 'Discover the Best Burgers in Town!',
+    'fries_title' => 'Menu Kentang Goreng!',
+    'promo_note' => 'Akan datang',
+    'discover_title' => 'Temukan burger terbaikmu!',
     'story_lines' => [
         'NOTHING', 'COMPARES TO', 'SINKING YOUR', 'TEETH INTO',
         'SMOKY FLAVOR', 'HOT JUICY', 'BURGER STACKS', 'WITH FLAME',
@@ -28,6 +28,6 @@ return [
         ['quote' => 'Big flavor in every layer. This is what a proper burger should taste like!', 'name' => 'Smoky fan'],
         ['quote' => 'Golden buns, fresh greens, and seriously good cheese. Love every bite!', 'name' => 'Mak Yay fan'],
     ],
-    'footer_title' => 'Crispy golden fries. Better together.',
-    'footer_description' => 'Pilih burger favoritmu. Lengkapi dengan kentang renyah.',
+    'footer_title' => 'Burger Mak Yay. Tasty & Savory.',
+    'footer_description' => 'Pilih Burger & Kebab favoritmu.',
 ];

@@ -125,8 +125,8 @@
                         </a>
                     </div>
                     <div class="qris-instructions">
-                        <div class="amount-card">
-                            <span class="amount-label">Nominal yang harus dibayar:</span>
+                        <div class="amount-card" style="background: transparent; border: 1px solid #ddbf9d; border-radius: 10px; padding: 12px 16px;">
+                            <span class="amount-label" style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.7;">Total Bayar</span>
                             <div class="amount-value-row">
                                 <span class="amount-value" id="order-nominal" data-nominal="{{ $order->grand_total }}">
                                     Rp {{ number_format($order->grand_total, 0, ',', '.') }}
@@ -137,7 +137,6 @@
                                 </button>
                                 <span id="copy-amount-status" class="sr-only" role="status" aria-live="polite"></span>
                             </div>
-                            <small class="muted">Pastikan nominal transfer sesuai persis agar verifikasi cepat.</small>
                         </div>
 
                         <div class="action-buttons-group">
@@ -145,9 +144,6 @@
                                 @include('partials.whatsapp-icon')
                                 <span>Konfirmasi ke WhatsApp Kedai</span>
                             </a>
-                            <p class="muted action-note">
-                                Klik tombol di atas untuk membuka WhatsApp kedai dengan format pesanan otomatis. Kamu bisa langsung melampirkan screenshot bukti transfer QRIS.
-                            </p>
                         </div>
 
                     </div>
