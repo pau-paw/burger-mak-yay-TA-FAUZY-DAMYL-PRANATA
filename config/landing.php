@@ -3,15 +3,15 @@
 // Konten mainpage. Semua nilai ditampilkan dengan escaping Blade.
 return [
     'brand' => 'Mak Yay',
-    'hero_lines' => ['SMOKY', 'CHEESY', 'BURGER'],
+    'hero_lines' => ['YUMMY', 'TASTY', 'SAVORY'],
     'badge_top' => 'MAK YAY',
-    'badge_main' => 'BIG BITE',
+    'badge_main' => 'ONE BITE',
     'badge_bottom' => 'BIG FLAVOR',
     'flavor_title' => 'Flavor That Makes History!',
     'flavor_description' => 'Every bite is bold, smoky, and unforgettable.',
     // Contoh materi promosi, tidak mengubah harga atau isi checkout.
-    'fries_title' => 'Free Fries Every Order!',
-    'promo_note' => 'Contoh promo · belum berlaku',
+    'fries_title' => 'Free Fries Menu Order!',
+    'promo_note' => 'Cooming soon',
     'discover_title' => 'Discover the Best Burgers in Town!',
     'story_lines' => [
         'NOTHING', 'COMPARES TO', 'SINKING YOUR', 'TEETH INTO',

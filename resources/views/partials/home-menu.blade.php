@@ -1,5 +1,5 @@
 <section class="home-menu" id="menu" aria-labelledby="menu-title">
-    <div class="home-menu-heading"><div><span class="menu-eyebrow">PILIH BURGER FAVORITMU</span><h2 class="display" id="menu-title">Big bites.<br>Made for you.</h2></div><p>{{ $products->total() }} menu tersedia<br><span>Tambah topping. Bikin versimu sendiri.</span></p></div>
+    <div class="home-menu-heading"><div><h2 class="display" id="menu-title">Big bites.<br>Made for you.</h2></div><p>{{ $products->total() }} menu tersedia<br><span>Tambah topping. Bikin versimu sendiri.</span></p></div>
     <form class="home-menu-filter" action="{{ route('home') }}#menu" method="GET">
         <div><label for="q">Cari menu</label><input type="search" id="q" name="q" value="{{ request('q') }}" maxlength="100" placeholder="Burger, kebab…"></div>
         <div>
@@ -21,9 +21,8 @@
         });
     @endphp
     @forelse($groupedProducts as $categoryName => $categoryProducts)
-        <div class="category-section-header" style="margin-top: 2.2rem; margin-bottom: 1.2rem;">
-            <span class="menu-eyebrow" style="color: #805747; font-size: 10px; margin-bottom: 4px;">MENU PILIHAN</span>
-            <h3 class="display" style="font-size: 32px; margin: 0; color: #792006;">{{ $categoryName }}</h3>
+        <div class="category-section-header" style="margin-top: {{ $loop->first ? '2.5rem' : '4.5rem' }}; margin-bottom: 1.8rem; text-align: center;">
+            <h3 style="font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; color: #1a1a1a; margin: 0; letter-spacing: -0.5px;">{{ $categoryName }}</h3>
         </div>
         <div class="home-product-grid">
             @foreach($categoryProducts as $product)
