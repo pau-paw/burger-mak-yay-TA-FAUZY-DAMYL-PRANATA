@@ -21,16 +21,16 @@
         });
     @endphp
     @forelse($groupedProducts as $categoryName => $categoryProducts)
-        <div class="category-section-header" style="margin-top: {{ $loop->first ? '2.5rem' : '4.5rem' }}; margin-bottom: 1.8rem; text-align: center;">
-            <h3 style="font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; color: #1a1a1a; margin: 0; letter-spacing: -0.5px;">{{ $categoryName }}</h3>
+        <div class="category-section-header" style="margin-top: {{ $loop->first ? '2.5rem' : '4.5rem' }}; margin-bottom: 1.5rem; text-align: center;">
+            <h3 style="font-size: 40px; font-weight: 800; margin: 0; color: #1a1a1a; letter-spacing: -0.5px;">{{ $categoryName }} Pilihan</h3>
         </div>
         <div class="home-product-grid">
             @foreach($categoryProducts as $product)
             <article class="home-product-card">
                 <a class="home-product-image" href="{{ route('products.show', $product) }}"><img src="{{ $product->image_url }}" width="400" height="300" loading="lazy" alt="{{ $product->image_path ? $product->name : 'Ilustrasi menu; foto produk belum ditambahkan' }}">@if(!$product->image_path)<small>Foto belum ditambahkan</small>@endif</a>
                 <div class="home-product-content"><span class="menu-eyebrow">{{ $product->category->name }}</span><h3 class="display"><a href="{{ route('products.show', $product) }}">{{ $product->name }}</a></h3>
-                    <div class="home-product-price"><strong>Rp {{ number_format($product->price, 0, ',', '.') }}</strong><small>{{ $product->stock > 0 ? 'Stok '.$product->stock : 'Habis' }}</small></div>
-                    <div class="home-product-actions"><a class="menu-customize" href="{{ route('products.show', $product) }}">Detail & topping ↗</a><form action="{{ route('cart.store', $product) }}" method="POST" data-once>@csrf<input type="hidden" name="quantity" value="1"><button type="submit" class="menu-button" @disabled($product->stock < 1)>{{ $product->stock > 0 ? '+ Keranjang' : 'Stok habis' }}</button></form></div>
+                    <div class="home-product-price"><strong>Rp {{ number_format($product->price, 0, ',', '.') }}</strong></div>
+                    <div class="home-product-actions"><form action="{{ route('cart.store', $product) }}" method="POST" data-once>@csrf<input type="hidden" name="quantity" value="1"><button type="submit" class="menu-button" @disabled($product->stock < 1)>{{ $product->stock > 0 ? '+ Keranjang' : 'Stok habis' }}</button></form></div>
                 </div>
             </article>
             @endforeach
